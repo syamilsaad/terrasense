@@ -81,6 +81,7 @@ nav a.active {
 .hero-content {
   max-width: 900px;
   margin: auto;
+  text-align: center;
 }
 
 .hero h1 {
@@ -91,16 +92,17 @@ nav a.active {
 .hero p {
   font-size: 18px;
   max-width: 720px;
+  margin: auto;
 }
 
 /* ------------------------------
    Content Sections
 -------------------------------- */
-.about {
+.about, .services, .technology {
   padding: 80px 24px;
 }
 
-.about-grid {
+.about-grid, .services-grid, .tech-grid {
   max-width: 1200px;
   margin: auto;
   display: grid;
@@ -109,12 +111,12 @@ nav a.active {
   align-items: center;
 }
 
-.about h2 {
+.about h2, .services h2, .technology h2 {
   font-size: 32px;
   margin-bottom: 16px;
 }
 
-.about p {
+.about p, .services p, .technology p {
   font-size: 16px;
   color: #374151;
 }
@@ -124,9 +126,9 @@ nav a.active {
 }
 
 /* ------------------------------
-   Pilot / Vision Cards
+   Cards (Vision, Pilots, Services)
 -------------------------------- */
-.vision-mission {
+.vision-mission, .tech-grid, .services-grid {
   background: #f8fafc;
   padding: 80px 24px;
   display: grid;
@@ -136,7 +138,49 @@ nav a.active {
   margin: auto;
 }
 
-.vm-box {
+.vm-box, .tech-box, .service-box {
   background: #ffffff;
   border-radius: 12px;
-  padding:
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.vm-box h3, .tech-box h3, .service-box h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.vm-box p, .tech-box p, .service-box p {
+  font-size: 15px;
+  color: #374151;
+  text-align: justify;
+}
+
+/* ------------------------------
+   Footer
+-------------------------------- */
+.footer {
+  background: #0f172a;
+  color: #e5e7eb;
+  text-align: center;
+  padding: 28px 16px;
+  font-size: 14px;
+}
+
+/* ------------------------------
+   Responsive
+-------------------------------- */
+@media (max-width: 900px) {
+  .about-grid, .services-grid, .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    margin-left: 24px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+}
