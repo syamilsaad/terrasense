@@ -1,65 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Technology | TerraSense</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology | TerraSense</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="/"><img src="/images/terrasense-logo.png" class="logo" alt="TerraSense"></a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/technology/" class="active">Technology</a>
+                <a href="/services/">Services</a>
+                <a href="/pilots/">Pilots</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<header class="navbar">
-  <div class="nav-container">
-    <a href="/" class="logo-link">
-      <img src="/images/terrasense-logo.png" alt="TerraSense Logo" class="logo">
-    </a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about/">About Us</a>
-      <a href="/technology/" class="active">Technology</a>
-      <a href="/services/">Services</a>
-      <a href="/pilots/">Pilots</a>
-      <a href="/#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section class="technology">
-  <div class="tech-container">
-    <h2>Our Technology</h2>
-    <p class="tech-intro justify">
-      TerraSense leverages passive optical fiber sensing to enable continuous, spatially resolved monitoring of ground and structural behavior.
-    </p>
-
-    <div class="tech-grid">
-      <div class="tech-box">
-        <img src="/images/fiber-sensing.png" alt="Optical Fiber Sensing">
-        <h3>Optical Fiber Sensing</h3>
-        <p>
-          Passive sensing with no electronics component.
-        </p>
-      </div>
-
-      <div class="tech-box">
-        <h3>Comprehensive Insight</h3>
-        <p>
-          Captures both surface and sub-surface movement, providing a comprehensive solution.
-        </p>
-      </div>
-
-      <div class="tech-box">
-        <h3>Real-Time Monitoring & Analysis</h3>
-        <p>
-          Continuous monitoring enables early detection and precise localization.
-        </p>
-      </div>
+    <div class="page-header">
+        <div class="container">
+            <h2>Our Technology</h2>
+            <p>Continuous, spatially resolved monitoring of ground and structural behavior.</p>
+        </div>
     </div>
-  </div>
-</section>
 
-<footer class="footer">
-  © 2026 TerraSense. All rights reserved.
-</footer>
+    <section class="section">
+        <div class="container grid-3">
+            <div class="card">
+                <img src="/images/fiber-sensing.png" alt="Sensing" style="margin-bottom: 20px;">
+                <h3>Optical Fiber Sensing</h3>
+                <p>Passive sensing with no electronics component, making it immune to EMI and ideal for long-term burial.</p>
+            </div>
+            <div class="card">
+                <h3>Sub-surface Insight</h3>
+                <p>Captures movement deep within the ground, providing data where traditional surface sensors cannot see.</p>
+            </div>
+            <div class="card">
+                <h3>Precise Localization</h3>
+                <p>Identify exactly where deformation is occurring along kilometers of fiber with centimeter precision.</p>
+            </div>
+        </div>
+    </section>
 
+    <footer class="footer"><div class="container">© 2026 TerraSense. All rights reserved.</div></footer>
 </body>
 </html>
