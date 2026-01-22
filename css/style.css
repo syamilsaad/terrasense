@@ -1,6 +1,6 @@
-/* ------------------------------
-   Global Reset & Base
--------------------------------- */
+/* ==============================
+   GLOBAL
+============================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +8,10 @@
 }
 
 body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  line-height: 1.6;
-  color: #1f2933;
-  background-color: #ffffff;
+  font-family: "Segoe UI", Inter, Arial, sans-serif;
+  color: #1f2937;
+  background: #ffffff;
+  line-height: 1.7;
 }
 
 img {
@@ -24,9 +24,26 @@ a {
   color: inherit;
 }
 
-/* ------------------------------
-   Navbar
--------------------------------- */
+/* ==============================
+   LAYOUT
+============================== */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section-light {
+  background: #f8fafc;
+}
+
+/* ==============================
+   NAVBAR
+============================== */
 .navbar {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
@@ -35,13 +52,11 @@ a {
   z-index: 1000;
 }
 
-.nav-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 16px 24px;
+.nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
 }
 
 .logo {
@@ -49,10 +64,10 @@ a {
 }
 
 nav a {
-  margin-left: 40px;
-  font-size: 17px;
+  margin-left: 36px;
+  font-size: 16px;
   font-weight: 600;
-  color: #1f2933;
+  color: #1f2937;
 }
 
 nav a:hover {
@@ -62,26 +77,16 @@ nav a:hover {
 nav a.active {
   color: #2563eb;
   border-bottom: 2px solid #2563eb;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
-/* ------------------------------
-   Hero Section
--------------------------------- */
+/* ==============================
+   HERO
+============================== */
 .hero {
-  background: linear-gradient(
-    135deg,
-    #0f172a,
-    #1e293b
-  );
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: #ffffff;
-  padding: 90px 24px;
-}
-
-.hero-content {
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
+  padding: 110px 0;
 }
 
 .hero h1 {
@@ -92,74 +97,92 @@ nav a.active {
 .hero p {
   font-size: 18px;
   max-width: 720px;
-  margin: auto;
 }
 
-/* ------------------------------
-   Content Sections
--------------------------------- */
-.about, .services, .technology {
-  padding: 80px 24px;
-}
-
-.about-grid, .services-grid, .tech-grid {
-  max-width: 1200px;
-  margin: auto;
+/* ==============================
+   GRID & CARDS
+============================== */
+.grid-2 {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 70px;
   align-items: center;
 }
 
-.about h2, .services h2, .technology h2 {
-  font-size: 32px;
-  margin-bottom: 16px;
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
-.about p, .services p, .technology p {
-  font-size: 16px;
+.card {
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+/* ==============================
+   TEXT
+============================== */
+h2 {
+  font-size: 34px;
+  margin-bottom: 18px;
+}
+
+p {
   color: #374151;
+  font-size: 16px;
 }
 
 .justify {
   text-align: justify;
 }
 
-/* ------------------------------
-   Cards (Vision, Pilots, Services)
--------------------------------- */
-.vision-mission, .tech-grid, .services-grid {
-  background: #f8fafc;
-  padding: 80px 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
+/* ==============================
+   CONTACT FORM
+============================== */
+.contact-box {
+  max-width: 700px;
   margin: auto;
 }
 
-.vm-box, .tech-box, .service-box {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+.contact-box form {
+  display: grid;
+  gap: 18px;
 }
 
-.vm-box h3, .tech-box h3, .service-box h3 {
-  font-size: 22px;
-  margin-bottom: 12px;
-  color: #0f172a;
-}
-
-.vm-box p, .tech-box p, .service-box p {
+.contact-box input,
+.contact-box textarea {
+  padding: 14px;
   font-size: 15px;
-  color: #374151;
-  text-align: justify;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
 }
 
-/* ------------------------------
-   Footer
--------------------------------- */
+.contact-box button {
+  padding: 14px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.contact-box button:hover {
+  background: #1d4ed8;
+}
+
+/* ==============================
+   FOOTER
+============================== */
 .footer {
   background: #0f172a;
   color: #e5e7eb;
@@ -168,16 +191,17 @@ nav a.active {
   font-size: 14px;
 }
 
-/* ------------------------------
-   Responsive
--------------------------------- */
+/* ==============================
+   RESPONSIVE
+============================== */
 @media (max-width: 900px) {
-  .about-grid, .services-grid, .tech-grid {
+  .grid-2,
+  .grid-3 {
     grid-template-columns: 1fr;
   }
 
   nav a {
-    margin-left: 24px;
+    margin-left: 22px;
   }
 
   .hero h1 {
