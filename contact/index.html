@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | TerraSense</title>
+    <title>Contact Us | TerraSense</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -21,26 +21,90 @@
         </div>
     </header>
 
-    <section class="section">
+    <div class="page-header">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h2 style="font-size: 2.5rem;">Contact Us</h2>
-                <p>Reach out for pilot collaborations or technical inquiries.</p>
+            <h2>Contact Us</h2>
+            <p>Our experts are only one call away to discuss your monitoring needs.</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container grid-2">
+            <div>
+                <h3 style="margin-bottom: 20px;">Technical Consultation</h3>
+                <p style="margin-bottom: 30px;">For specialized inquiries regarding optical fiber sensor design, geotechnical instrumentation, or research collaborations, please reach out to our lead expert.</p>
+                
+                <div class="card" style="flex-direction: row; align-items: center; gap: 20px; padding: 20px;">
+                    <img src="/images/dr-syamil.jpg" alt="Dr Syamil Sa'ad" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #2563eb;">
+                    <div>
+                        <h4 style="color: #0f172a;">Dr. Syamil Sa'ad</h4>
+                        <p style="font-size: 0.9rem; color: #2563eb; font-weight: 600; margin-bottom: 5px;">Technical Expert</p>
+                        <a href="mailto:syamilsaad@um.edu.my" style="font-size: 0.9rem; color: #4b5563; text-decoration: underline;">syamilsaad@um.edu.my</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <h4 style="margin-bottom: 10px;">General Office</h4>
+                    <p>TerraSense Malaysia<br>Kuala Lumpur, Malaysia</p>
+                    <p style="margin-top: 10px;"><strong>Email:</strong> info@terrasense.my</p>
+                </div>
             </div>
 
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="6" placeholder="How can we help you?" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <p>Email us at: <strong>info@terrasense.my</strong></p>
+            <div>
+                <form class="card" action="https://formspree.io/f/your-id-here" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                    <h3 style="margin-bottom: 10px;">Send an Inquiry</h3>
+                    <div style="display: flex; flex-direction: column;">
+                        <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Name</label>
+                        <input type="text" name="name" placeholder="Your Full Name" required class="form-input">
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Email</label>
+                        <input type="email" name="email" placeholder="your@email.com" required class="form-input">
+                    </div>
+                    <div style="display: flex; flex-direction: column;">
+                        <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Message</label>
+                        <textarea name="message" placeholder="How can we help you?" rows="5" class="form-input"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+                <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px; text-align: center;">Note: Inquiries are usually responded to within 24 hours.</p>
             </div>
         </div>
     </section>
 
-    <footer class="footer"><div class="container">© 2026 TerraSense. All rights reserved.</div></footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="/images/terrasense-logo.png" class="logo" alt="TerraSense">
+                    <p>Intelligent sensing solutions for a safer built environment. Specializing in high-precision optical fiber monitoring for slopes and structural assets.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/technology/">Technology</a></li>
+                        <li><a href="/pilots/">Pilots</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Expertise</h4>
+                    <ul>
+                        <li><a href="/services/">Fiber Optic Sensors</a></li>
+                        <li><a href="/services/">Real-time Dashboards</a></li>
+                        <li><a href="/services/">Geotechnical Analysis</a></li>
+                        <li><a href="/contact/">Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact Us</h4>
+                    <p><strong>TerraSense Malaysia</strong><br>Kuala Lumpur, Malaysia</p>
+                    <p style="margin-top:10px;">Email: info@terrasense.my<br>Phone: +603 XXXX XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 TerraSense. All rights reserved. | Built by Malaysian Engineering Experts.</div>
+        </div>
+    </footer>
 </body>
 </html>

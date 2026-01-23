@@ -1,5 +1,5 @@
 /* ==============================
-   GLOBAL STYLES
+    GLOBAL STYLES
 ============================== */
 * {
     margin: 0;
@@ -12,6 +12,8 @@ body {
     color: #1f2937;
     background: #ffffff;
     line-height: 1.6;
+    /* Prevent side-scrolling on mobile */
+    overflow-x: hidden; 
 }
 
 .container {
@@ -31,7 +33,7 @@ a {
 }
 
 /* ==============================
-   NAVBAR
+    NAVBAR
 ============================== */
 .navbar {
     background: #ffffff;
@@ -39,7 +41,7 @@ a {
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 80px;
+    min-height: 80px; /* Changed to min-height for mobile wrapping */
     display: flex;
     align-items: center;
 }
@@ -52,7 +54,8 @@ a {
 }
 
 .logo {
-    height: 40px;
+    height: 50px;
+    width: auto;
 }
 
 nav a {
@@ -72,7 +75,7 @@ nav a.active {
 }
 
 /* ==============================
-   HERO & PAGE HEADERS
+    HERO & PAGE HEADERS
 ============================== */
 .hero {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -93,7 +96,7 @@ nav a.active {
 }
 
 /* ==============================
-   SECTION LAYOUTS
+    SECTION LAYOUTS & GRIDS (STABLE)
 ============================== */
 .section {
     padding: 80px 0;
@@ -102,8 +105,7 @@ nav a.active {
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    gap: 40px;
 }
 
 .grid-3 {
@@ -114,16 +116,13 @@ nav a.active {
 
 .card {
     background: #ffffff;
-    padding: 40px;
+    padding: 35px;
     border-radius: 12px;
     border: 1px solid #e5e7eb;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
     height: 100%;
-}
-
-.card h3 {
-    margin-bottom: 15px;
-    color: #0f172a;
 }
 
 .justify {
@@ -131,54 +130,176 @@ nav a.active {
 }
 
 /* ==============================
-   FORMS & BUTTONS
+    PILOT PAGE SPECIFIC LAYOUT
 ============================== */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+.project-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.badge {
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
-input, textarea {
-    padding: 14px;
-    border: 1px solid #d1d5db;
+.gallery-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
     border-radius: 8px;
-    font-size: 1rem;
 }
 
-button {
-    background: #2563eb;
-    color: white;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-button:hover {
-    background: #1d4ed8;
+.divider {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 40px auto;
 }
 
 /* ==============================
-   FOOTER
+    FORM & BUTTONS
+============================== */
+.form-input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+.btn-submit {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+/* ==============================
+    IMAGE UTILITIES
+============================== */
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* ==============================
+    FOOTER
 ============================== */
 .footer {
     background: #0f172a;
-    color: #94a3b8;
-    padding: 40px 0;
+    color: #f3f4f6;
+    padding: 60px 0 30px 0;
+    border-top: 4px solid #2563eb;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    height: 45px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.footer h4 { color: #ffffff; margin-bottom: 20px; }
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul li a { color: #94a3b8; font-size: 0.9rem; }
+.footer-bottom {
     text-align: center;
-    font-size: 0.9rem;
+    padding-top: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #1e293b;
+    font-size: 0.8rem;
+    color: #64748b;
 }
 
 /* ==============================
-   MOBILE
+    MOBILE RESPONSIVENESS (THE FIX)
 ============================== */
 @media (max-width: 768px) {
-    .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2rem; }
-    nav { display: none; } /* Standard practice: add a mobile menu later */
+    /* Stack all grids into 1 column */
+    .grid-2, .grid-3, .footer-grid, .project-row { 
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+
+    /* Adjust Navbar for mobile */
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+    .nav-inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 10px; /* Space out links horizontally when stacked */
+        font-size: 14px;
+    }
+
+    /* Adjust typography for smaller screens */
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero {
+        padding: 60px 0;
+    }
+    .section {
+        padding: 50px 0;
+    }
+
+    /* Gallery looks better as 2 columns on mobile */
+    .project-gallery { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    /* For very small phones, stack the gallery fully */
+    .project-gallery { 
+        grid-template-columns: 1fr; 
+    }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    nav a {
+        margin-left: 0;
+    }
 }
