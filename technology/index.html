@@ -1,5 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            if (href && !href.startsWith("#") && !href.startsWith("http")) {
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        });
+    });
+});
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,17 +54,17 @@
     <section class="section">
         <div class="container grid-3">
             <div class="card">
-                <img src="/images/tech-fiber.jpg" alt="Optical Fiber Sensing" class="card-img">
+                <img src="/images/Tiltmeter.jpeg" alt="Optical Fiber Sensing" class="card-img">
                 <h3>Optical Fiber Sensing</h3>
                 <p>We leverage optical fiber sensing, fully passive with no electrical components at the sensor level. This reduces deployment cost including long-term maintenance and operational costs.</p>
             </div>
             <div class="card">
-                <img src="/images/tech-structural.jpg" alt="Structural Monitoring" class="card-img">
+                <img src="/images/Slope.png" alt="Structural Monitoring" class="card-img">
                 <h3>Comprehensive Structural Monitoring</h3>
                 <p>We design customized instrumentation schemes that integrate both surface and subsurface monitoring, including tilt, displacement, and deformation measurements.</p>
             </div>
             <div class="card">
-                <img src="/images/tech-scalable.jpg" alt="Scalable Architecture" class="card-img">
+                <img src="/images/Modular.png" alt="Scalable Architecture" class="card-img">
                 <h3>Modular & Scalable Monitoring Architecture</h3>
                 <p>Our monitoring systems are built on a modular architecture, allowing sensors, data acquisition units, and power systems to be upgraded as monitoring needs evolve.</p>
             </div>
@@ -61,6 +84,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/about/">About Us</a></li>
                         <li><a href="/technology/">Technology</a></li>
+                        <li><a href="/services/">Services</a></li>
                         <li><a href="/pilots/">Pilots</a></li>
                     </ul>
                 </div>
@@ -68,15 +92,15 @@
                     <h4>Expertise</h4>
                     <ul>
                         <li><a href="/services/">Fiber Optic Sensors</a></li>
-                        <li><a href="/services/">Real-time Dashboards</a></li>
+                        <li><a href="/services/">Real-time Monitoring</a></li>
                         <li><a href="/services/">Geotechnical Analysis</a></li>
                         <li><a href="/contact/">Consulting</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contact Us</h4>
-                    <p><strong>TerraSense Malaysia</strong><br>Kuala Lumpur, Malaysia</p>
-                    <p style="margin-top:10px;">Email: info@terrasense.my<br>Phone: +603 XXXX XXXX</p>
+                    <p><strong>TerraSense Malaysia</strong><br>Level G, Block J12, Faculty of Science, Universiti Malaya, 50603, Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia</p>
+                    <p style="margin-top:10px;"><br></p>
                 </div>
             </div>
             <div class="footer-bottom">&copy; 2026 TerraSense. All rights reserved. | Built by Malaysian Engineering Experts.</div>

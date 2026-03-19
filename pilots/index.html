@@ -1,5 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            if (href && !href.startsWith("#") && !href.startsWith("http")) {
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        });
+    });
+});
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,9 +59,9 @@
                 <p class="justify">Monitoring of a previously collapsed slope with signs of further movement seen in nearby structures. A total of 10 optical fiber-based tiltmeters were deployed and monitoring is still ongoing.</p>
             </div>
             <div class="project-gallery">
-                <img src="/images/pilot1-a.jpg" alt="Setup">
-                <img src="/images/pilot1-b.jpg" alt="Installation">
-                <img src="/images/pilot1-c.jpg" alt="Monitoring">
+                <img src="/images/APM1.png" alt="Setup">
+                <img src="/images/APM5.png" alt="Installation">
+                <img src="/images/APM3.png" alt="Monitoring">
             </div>
         </div>
 
@@ -51,9 +74,9 @@
                 <p class="justify">Slope and infrastructure monitoring adjacent to an active construction site. Two boreholes were monitored using our inclinometer probe and verified with conventional methods. Additionally, 2 tiltmeters monitor nearby building columns for inclination or vibration.</p>
             </div>
             <div class="project-gallery">
-                <img src="/images/pilot2-a.jpg" alt="Inclinometer">
-                <img src="/images/pilot2-b.jpg" alt="Construction Site">
-                <img src="/images/pilot2-c.jpg" alt="Sensor">
+                <img src="/images/PPUM3.png" alt="Inclinometer">
+                <img src="/images/PPUM2png.png" alt="Construction Site">
+                <img src="/images/PPUM1.png" alt="Sensor">
             </div>
         </div>
 
@@ -66,9 +89,9 @@
                 <p class="justify">A significant joint research collaboration with Pintas Utama Sdn Bhd to test real-time slope monitoring using optical fiber sensors. With 6 tiltmeters and 3 extensometers, this marked our expansion into the geotechnical sector.</p>
             </div>
             <div class="project-gallery">
-                <img src="/images/pilot3-a.jpg" alt="Slope View">
-                <img src="/images/pilot3-b.jpg" alt="Extensometer">
-                <img src="/images/pilot3-c.jpg" alt="Fiber Link">
+                <img src="/images/BV1.png" alt="Slope View">
+                <img src="/images/BV4.png" alt="Extensometer">
+                <img src="/images/BV3.png" alt="Fiber Link">
             </div>
         </div>
     </section>
@@ -86,6 +109,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/about/">About Us</a></li>
                         <li><a href="/technology/">Technology</a></li>
+                        <li><a href="/services/">Services</a></li>
                         <li><a href="/pilots/">Pilots</a></li>
                     </ul>
                 </div>
@@ -93,15 +117,15 @@
                     <h4>Expertise</h4>
                     <ul>
                         <li><a href="/services/">Fiber Optic Sensors</a></li>
-                        <li><a href="/services/">Real-time Dashboards</a></li>
+                        <li><a href="/services/">Real-time Monitoring</a></li>
                         <li><a href="/services/">Geotechnical Analysis</a></li>
                         <li><a href="/contact/">Consulting</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contact Us</h4>
-                    <p><strong>TerraSense Malaysia</strong><br>Kuala Lumpur, Malaysia</p>
-                    <p style="margin-top:10px;">Email: info@terrasense.my</p>
+                    <p><strong>TerraSense Malaysia</strong><br>Level G, Block J12, Faculty of Science, Universiti Malaya, 50603, Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia</p>
+                    <p style="margin-top:10px;"><br></p>
                 </div>
             </div>
             <div class="footer-bottom">&copy; 2026 TerraSense. All rights reserved.</div>

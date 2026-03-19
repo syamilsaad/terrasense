@@ -1,110 +1,320 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | TerraSense</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <header class="navbar">
-        <div class="container nav-inner">
-            <a href="/"><img src="/images/terrasense-logo.png" class="logo" alt="TerraSense"></a>
-            <nav>
-                <a href="/">Home</a>
-                <a href="/about/">About</a>
-                <a href="/technology/">Technology</a>
-                <a href="/services/">Services</a>
-                <a href="/pilots/">Pilots</a>
-                <a href="/contact/" class="active">Contact</a>
-            </nav>
-        </div>
-    </header>
+/* ==============================
+    GLOBAL STYLES
+============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <div class="page-header">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Our experts are only one call away to discuss your monitoring needs.</p>
-        </div>
-    </div>
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #1f2937;
+    background: #ffffff;
+    line-height: 1.6;
+    /* Prevent side-scrolling on mobile */
+    overflow-x: hidden; 
+}
 
-    <section class="section">
-        <div class="container grid-2">
-            <div>
-                <h3 style="margin-bottom: 20px;">Technical Consultation</h3>
-                <p style="margin-bottom: 30px;">For specialized inquiries regarding optical fiber sensor design, geotechnical instrumentation, or research collaborations, please reach out to our lead expert.</p>
-                
-                <div class="card" style="flex-direction: row; align-items: center; gap: 20px; padding: 20px;">
-                    <img src="/images/dr-syamil.jpg" alt="Dr Syamil Sa'ad" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #2563eb;">
-                    <div>
-                        <h4 style="color: #0f172a;">Dr. Syamil Sa'ad</h4>
-                        <p style="font-size: 0.9rem; color: #2563eb; font-weight: 600; margin-bottom: 5px;">Technical Expert</p>
-                        <a href="mailto:syamilsaad@um.edu.my" style="font-size: 0.9rem; color: #4b5563; text-decoration: underline;">syamilsaad@um.edu.my</a>
-                    </div>
-                </div>
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
 
-                <div style="margin-top: 40px;">
-                    <h4 style="margin-bottom: 10px;">General Office</h4>
-                    <p>TerraSense Malaysia<br>Kuala Lumpur, Malaysia</p>
-                    <p style="margin-top: 10px;"><strong>Email:</strong> info@terrasense.my</p>
-                </div>
-            </div>
+img {
+    max-width: 100%;
+    border-radius: 12px;
+}
 
-            <div>
-                <form class="card" action="https://formspree.io/f/your-id-here" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                    <h3 style="margin-bottom: 10px;">Send an Inquiry</h3>
-                    <div style="display: flex; flex-direction: column;">
-                        <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Name</label>
-                        <input type="text" name="name" placeholder="Your Full Name" required class="form-input">
-                    </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Email</label>
-                        <input type="email" name="email" placeholder="your@email.com" required class="form-input">
-                    </div>
-                    <div style="display: flex; flex-direction: column;">
-                        <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Message</label>
-                        <textarea name="message" placeholder="How can we help you?" rows="5" class="form-input"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </form>
-                <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px; text-align: center;">Note: Inquiries are usually responded to within 24 hours.</p>
-            </div>
-        </div>
-    </section>
+a {
+    text-decoration: none;
+    transition: 0.3s ease;
+}
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <img src="/images/terrasense-logo.png" class="logo" alt="TerraSense">
-                    <p>Intelligent sensing solutions for a safer built environment. Specializing in high-precision optical fiber monitoring for slopes and structural assets.</p>
-                </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about/">About Us</a></li>
-                        <li><a href="/technology/">Technology</a></li>
-                        <li><a href="/pilots/">Pilots</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Expertise</h4>
-                    <ul>
-                        <li><a href="/services/">Fiber Optic Sensors</a></li>
-                        <li><a href="/services/">Real-time Dashboards</a></li>
-                        <li><a href="/services/">Geotechnical Analysis</a></li>
-                        <li><a href="/contact/">Consulting</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact Us</h4>
-                    <p><strong>TerraSense Malaysia</strong><br>Kuala Lumpur, Malaysia</p>
-                    <p style="margin-top:10px;">Email: info@terrasense.my<br>Phone: +603 XXXX XXXX</p>
-                </div>
-            </div>
-            <div class="footer-bottom">&copy; 2026 TerraSense. All rights reserved. | Built by Malaysian Engineering Experts.</div>
-        </div>
-    </footer>
-</body>
-</html>
+/* ==============================
+    NAVBAR
+============================== */
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 80px; /* Changed to min-height for mobile wrapping */
+    display: flex;
+    align-items: center;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+nav a {
+    margin-left: 32px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+nav a:hover, nav a.active {
+    color: #2563eb;
+}
+
+nav a.active {
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 5px;
+}
+
+/* ==============================
+    HERO & PAGE HEADERS
+============================== */
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.page-header {
+    background: #f8fafc;
+    padding: 60px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* ==============================
+    SECTION LAYOUTS & GRIDS (STABLE)
+============================== */
+.section {
+    padding: 80px 0;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.justify {
+    text-align: justify;
+}
+
+/* ==============================
+    PILOT PAGE SPECIFIC LAYOUT
+============================== */
+.project-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.badge {
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.project-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 40px auto;
+}
+
+/* ==============================
+    FORM & BUTTONS
+============================== */
+.form-input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+.btn-submit {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+/* ==============================
+    IMAGE UTILITIES
+============================== */
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* ==============================
+    FOOTER
+============================== */
+.footer {
+    background: #0f172a;
+    color: #f3f4f6;
+    padding: 60px 0 30px 0;
+    border-top: 4px solid #2563eb;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    height: 45px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.footer h4 { color: #ffffff; margin-bottom: 20px; }
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul li a { color: #94a3b8; font-size: 0.9rem; }
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #1e293b;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* ==============================
+    MOBILE RESPONSIVENESS (THE FIX)
+============================== */
+@media (max-width: 768px) {
+    /* Stack all grids into 1 column */
+    .grid-2, .grid-3, .footer-grid, .project-row { 
+        grid-template-columns: 1fr; 
+        gap: 30px;
+    }
+
+    /* Adjust Navbar for mobile */
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+    .nav-inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 10px; /* Space out links horizontally when stacked */
+        font-size: 14px;
+    }
+
+    /* Adjust typography for smaller screens */
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero {
+        padding: 60px 0;
+    }
+    .section {
+        padding: 50px 0;
+    }
+
+    /* Gallery looks better as 2 columns on mobile */
+    .project-gallery { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 480px) {
+    /* For very small phones, stack the gallery fully */
+    .project-gallery { 
+        grid-template-columns: 1fr; 
+    }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    nav a {
+        margin-left: 0;
+    }
+}
+
+/*====================
+       Animation
+=====================*/
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+body.fade-out {
+    opacity: 0;
+}

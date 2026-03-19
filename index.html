@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            if (href && !href.startsWith("#") && !href.startsWith("http")) {
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        });
+    });
+});
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TerraSense | Innovative Sensing Solutions</title>
-    
+
     <link rel="icon" type="image/png" href="/images/terrasense-logo.png">
     <link rel="apple-touch-icon" href="/images/terrasense-logo.png">
-    
+
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -28,7 +51,7 @@
     <section class="hero">
         <div class="container">
             <h1>Intelligent Monitoring for Safer Slopes & Infrastructure</h1>
-            <p style="font-size: 1.2rem; max-width: 700px; color: #cbd5e1;">TerraSense delivers real-time, subsurface monitoring using optical fiber sensing to reduce risk and support data-driven engineering decisions.</p>
+            <p style="font-size: 1.2rem; max-width: 700px; color: #cbd5e1;">TerraSense delivers real-time, ground movements and infrastructure monitoring using optical fiber sensing to reduce risk and support data-driven engineering decisions.</p>
         </div>
     </section>
 
@@ -77,19 +100,16 @@
             <h2 style="text-align: center; margin-bottom: 50px;">Why Choose Us</h2>
             <div class="grid-3">
                 <div class="feature-item">
-                    <img src="/images/why-1.png" alt="Innovation" class="feature-icon">
-                    <h4 style="color: #2563eb;">We Value Innovation</h4>
-                    <p>We welcome industries to provide real-life problems; we provide the custom solutions to solve them.</p>
+                    <h4 style="text-align:center; color: #2563eb;">We Value Innovation</h4>
+                    <p style="text-align:left; max-width:300px; margin: 0 auto;">We welcome industries to provide real-life problems; we provide the custom solutions to solve them.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="/images/why-2.png" alt="Support" class="feature-icon">
-                    <h4 style="color: #2563eb;">One Call Away</h4>
-                    <p>Local-based company with homegrown technology. Our technical experts are just a phone call away.</p>
+                    <h4 style="text-align:center; color: #2563eb;">One Call Away</h4>
+                    <p style="text-align:left; max-width:300px; margin: 0 auto;">Local-based company with homegrown technology. Our technical experts are just a phone call away.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="/images/why-3.png" alt="Experts" class="feature-icon">
-                    <h4 style="color: #2563eb;">Certified Experts</h4>
-                    <p>Our technical team has over 10 years of experience in optical sensor design and instrumentation.</p>
+                    <h4 style="text-align:center; color: #2563eb;">Malaysian Experts</h4>
+                    <p style="text-align:left; max-width:300px; margin: 0 auto;">Our technical team has over 10 years of experience in optical sensor design and instrumentation.</p>
                 </div>
             </div>
         </div>
@@ -108,6 +128,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/about/">About Us</a></li>
                         <li><a href="/technology/">Technology</a></li>
+                        <li><a href="/services/">Services</a></li>
                         <li><a href="/pilots/">Pilots</a></li>
                     </ul>
                 </div>
@@ -115,15 +136,15 @@
                     <h4>Expertise</h4>
                     <ul>
                         <li><a href="/services/">Fiber Optic Sensors</a></li>
-                        <li><a href="/services/">Real-time Dashboards</a></li>
+                        <li><a href="/services/">Real-time Monitoring</a></li>
                         <li><a href="/services/">Geotechnical Analysis</a></li>
                         <li><a href="/contact/">Consulting</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contact Us</h4>
-                    <p><strong>TerraSense Sdn Bhd</strong><br>Kuala Lumpur, Malaysia</p>
-                    <p style="margin-top:10px;">Email: info@terrasense-my.com<br></p>
+                    <p><strong>TerraSense Malaysia</strong><br>Level G, Block J12, Faculty of Science, Universiti Malaya, 50603, Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia</p>
+                    <p style="margin-top:10px;"><br></p>
                 </div>
             </div>
             <div class="footer-bottom">&copy; 2026 TerraSense. All rights reserved.</div>

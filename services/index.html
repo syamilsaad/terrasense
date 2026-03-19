@@ -1,5 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            if (href && !href.startsWith("#") && !href.startsWith("http")) {
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        });
+    });
+});
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,32 +54,32 @@
     <section class="section">
         <div class="container grid-2">
             <div class="card">
-                <img src="/images/service-slope.jpg" alt="Slope Monitoring" class="card-img">
+                <img src="/images/Geotechnical monitoring.png" alt="Slope Monitoring" class="card-img">
                 <h3>Slope & Geotechnical Monitoring</h3>
                 <p>Site-specific design and deployment of surface and subsurface instrumentations and monitoring systems, providing ground movement assessment using optical fiber sensing technology.</p>
             </div>
             <div class="card">
-                <img src="/images/service-structural.jpg" alt="Structural Health" class="card-img">
+                <img src="/images/structural health.png" alt="Structural Health" class="card-img">
                 <h3>Structural Health Monitoring</h3>
                 <p>Instrumentation installation and monitoring of infrastructures, bridges, and buildings to track tilt, deformation, and long-term structural behavior using optical fiber sensing technology.</p>
             </div>
             <div class="card">
-                <img src="/images/service-custom.jpg" alt="Custom Sensors" class="card-img">
+                <img src="/images/custom sensor.png" alt="Custom Sensors" class="card-img">
                 <h3>Custom Optical Fiber Sensor</h3>
                 <p>Design, fabrication, and customization of application-specific optical fiber sensors (tilt, strain, displacement, etc.) tailored to client conditions and performance requirements.</p>
             </div>
             <div class="card">
-                <img src="/images/service-install.jpg" alt="Installation" class="card-img">
+                <img src="/images/Sensor installation.png" alt="Installation" class="card-img">
                 <h3>Sensor Installation & Data Acquisition</h3>
                 <p>Field installation of optical fiber sensors and supporting hardware, including data loggers, industrial gateways, and power systems for reliable and continuous data acquisition.</p>
             </div>
             <div class="card">
-                <img src="/images/service-data.jpg" alt="Data Visualization" class="card-img">
+                <img src="/images/data reporting.jpg" alt="Data Visualization" class="card-img">
                 <h3>Data Visualization, Analytics & Reporting</h3>
                 <p>Development of monitoring dashboards, automated data processing, and periodic engineering reports to support the interpretation of complex monitoring behavior.</p>
             </div>
             <div class="card">
-                <img src="/images/service-consulting.jpg" alt="Consulting" class="card-img">
+                <img src="/images/consultation.png" alt="Consulting" class="card-img">
                 <h3>Consulting and R&D Support</h3>
                 <p>Consultancy services on optical fiber system design, commissioning, and performance evaluation, including post-installation services and specialized R&D projects.</p>
             </div>
@@ -76,6 +99,7 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/about/">About Us</a></li>
                         <li><a href="/technology/">Technology</a></li>
+                        <li><a href="/services/">Services</a></li>
                         <li><a href="/pilots/">Pilots</a></li>
                     </ul>
                 </div>
@@ -83,15 +107,15 @@
                     <h4>Expertise</h4>
                     <ul>
                         <li><a href="/services/">Fiber Optic Sensors</a></li>
-                        <li><a href="/services/">Real-time Dashboards</a></li>
+                        <li><a href="/services/">Real-time Monitoring</a></li>
                         <li><a href="/services/">Geotechnical Analysis</a></li>
                         <li><a href="/contact/">Consulting</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contact Us</h4>
-                    <p><strong>TerraSense Malaysia</strong><br>Kuala Lumpur, Malaysia</p>
-                    <p style="margin-top:10px;">Email: info@terrasense.my<br>Phone: +603 XXXX XXXX</p>
+                    <p><strong>TerraSense Malaysia</strong><br>Level G, Block J12, Faculty of Science, Universiti Malaya, 50603, Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia</p>
+                    <p style="margin-top:10px;"><br></p>
                 </div>
             </div>
             <div class="footer-bottom">&copy; 2026 TerraSense. All rights reserved. | Built by Malaysian Engineering Experts.</div>
