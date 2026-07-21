@@ -28,6 +28,62 @@ document.addEventListener("DOMContentLoaded", function () {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | TerraSense</title>
     <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* =======================================================
+           DESKTOP STYLES (Matches Image 1 Exactly)
+           ======================================================= */
+        .story-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .story-card .story-img {
+            width: 360px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .story-card .story-content {
+            flex: 1;
+        }
+
+        /* =======================================================
+           MOBILE STYLES (Only applies to screens 768px or narrower)
+           ======================================================= */
+        @media (max-width: 768px) {
+            .hero-grid {
+                gap: 2rem !important; /* Replaces breaking 200px inline gap */
+            }
+
+            .story-card {
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+            }
+
+            /* Keeps images cleanly at the top of cards on mobile */
+            .story-card.reverse {
+                flex-direction: column-reverse;
+            }
+
+            .story-card .story-img {
+                width: 100%;
+                height: auto;
+                max-height: 220px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
@@ -52,48 +108,53 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
     <section class="section">
-    <div class="container grid-2" style="gap: 200px; align-items: center;">
-        <div>
-            <p class="justify">
-                Founded in 2025, TerraSense started as a research spin-off to commercialize optical fiber sensing for geotechnical applications. We are specialized in custom optical fiber sensor solution, where our team of engineers and researchers focuses on innovation and reliability.
-            </p>
+        <div class="container grid-2 hero-grid" style="gap: 200px; align-items: center;">
+            <div>
+                <p class="justify">
+                    Founded in 2025, TerraSense started as a research spin-off to commercialize optical fiber sensing for geotechnical applications. We are specialized in custom optical fiber sensor solution, where our team of engineers and researchers focuses on innovation and reliability.
+                </p>
+            </div>
+            <img src="/images/Demo day.jpeg" alt="Our Team" style="max-width: 100%; height: auto; border: 2px solid #2563eb; border-radius: 20%;">
         </div>
-        <img src="/images/Demo day.jpeg" alt="Our Team" style="height: 300px; border: 2px solid #2563eb; border-radius: 20%;">
-    </div>
-</section>
+    </section>
 
     <section class="section" style="background: #f8fafc;">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 50px;">Our Story</h2>
-            <div class="grid-2" style="grid-template-columns: 1fr;">
-                <div class="card" style = "display: flex; flex-direction: row">
-                    <img src="/images/About1.png" alt="Research Phase" class="card-img" style= "width: 950px;">
-                    <div style="flex-direction: column; margin-left: 20px;">
+            
+            <!-- Card 1: Image Left, Text Right -->
+            <div class="story-card">
+                <img src="/images/About1.png" alt="Research Phase" class="story-img">
+                <div class="story-content">
                     <h3>Research & Innovation</h3>
                     <p>
                         It began in the lab, where we spent years perfecting optical fiber sensor designs to withstand the toughest geotechnical conditions. We successfully developed our own range of tiltmeters and inclinometers, built specifically for Malaysia's unique terrain.
                     </p>
                 </div>
             </div>
-                <div class="card" style = "display: flex; flex-direction: row;">
-                    <div style="flex-direction: column;">
+
+            <!-- Card 2: Text Left, Image Right -->
+            <div class="story-card reverse">
+                <div class="story-content">
                     <h3>Field Validation</h3>
                     <p>
                         Our technology moved from the lab to the field, proving its reliability in monitoring high-risk slope areas across the country.
                     </p>
                 </div>    
-                    <img src="/images/BV2.png" alt="First Deployment" class="card-img" style = "flex-direction: row; width: 450px;">
-                </div>
-            <div>
-                <div class="card" style = "display: flex; flex-direction: row">
-                    <img src="/images/APM2.jpg" alt="Commercial Launch" class="card-img" style= "width: 450px;">
-                    <div style="flex-direction: column; margin-left: 20px; width:auto">
+                <img src="/images/BV2.png" alt="First Deployment" class="story-img">
+            </div>
+
+            <!-- Card 3: Image Left, Text Right -->
+            <div class="story-card">
+                <img src="/images/APM2.jpg" alt="Commercial Launch" class="story-img">
+                <div class="story-content">
                     <h3>Industrial Application</h3>
                     <p>
                         Today, we simplify complex fiber-optic data into actionable insights, helping industries solve real-world monitoring problems.
                     </p>
                 </div>
             </div>
+
         </div>
     </section>
 
