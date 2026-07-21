@@ -28,6 +28,70 @@ document.addEventListener("DOMContentLoaded", function () {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | TerraSense</title>
     <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* =======================================================
+           DESKTOP STYLES (Preserves exact design)
+           ======================================================= */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            padding: 24px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-card img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #2563eb;
+            flex-shrink: 0;
+        }
+
+        .contact-form-card {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* =======================================================
+           MOBILE STYLES (Only applies to screens 768px or narrower)
+           ======================================================= */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .profile-card img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
@@ -38,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <a href="/about/">About</a>
                 <a href="/technology/">Technology</a>
                 <a href="/services/">Services</a>
-                <a href="/pilots/">Projects</a>
+                <a href="/pilots/">Pilots</a>
                 <a href="/contact/" class="active">Contact</a>
             </nav>
         </div>
@@ -52,13 +116,13 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
     <section class="section">
-        <div class="container grid-2">
+        <div class="container contact-grid">
             <div>
                 <h3 style="margin-bottom: 20px;">Technical Consultation</h3>
                 <p style="margin-bottom: 30px;">For specialized inquiries regarding optical fiber sensor design, geotechnical instrumentation, or research collaborations, please reach out to our lead expert.</p>
                 
-                <div class="card" style="display: flex; flex-direction: row; height: 45%; align-items: center; gap: 20px; padding: 20px; width: 100%; align-self: start;">
-                    <img src="/images/Formal pic Syamil.jpeg" alt="Dr Syamil Sa'ad" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 2px solid #2563eb;">
+                <div class="profile-card">
+                    <img src="/images/Formal pic Syamil.jpeg" alt="Dr Syamil Sa'ad">
                     <div>
                         <h4 style="color: #0f172a;">Dr. Syamil Sa'ad</h4>
                         <p style="font-size: 0.9rem; color: #2563eb; font-weight: 600; margin-bottom: 5px;">Technical Expert</p>
@@ -68,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
 
             <div>
-                <form class="card" action="https://formspree.io/f/mlgppeyb" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+                <form class="contact-form-card" action="https://formspree.io/f/mlgppeyb" method="POST">
                     <h3 style="margin-bottom: 10px;">Send an Inquiry</h3>
                     <div style="display: flex; flex-direction: column;">
                         <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Name</label>
@@ -103,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <li><a href="/about/">About Us</a></li>
                         <li><a href="/technology/">Technology</a></li>
                         <li><a href="/services/">Services</a></li>
-                        <li><a href="/pilots/">Projects</a></li>
+                        <li><a href="/pilots/">Pilots</a></li>
                     </ul>
                 </div>
                 <div>
