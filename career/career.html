@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("fade-in");
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+        link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+
+            if (href && !href.startsWith("#") && !href.startsWith("http")) {
+                e.preventDefault();
+                document.body.classList.remove("fade-in");
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        });
+    });
+});
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Careers | TerraSense</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+
+        /* =======================================================
+           CAREER HERO
+           ======================================================= */
+
+        .career-hero {
+            background: linear-gradient(135deg, #f8fafc, #eef4f1);
+            padding: 75px 0;
+        }
+
+        .career-hero-content {
+            max-width: 850px;
+        }
+
+        .career-hero h1 {
+            font-size: 46px;
+            line-height: 1.15;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+
+        .career-hero p {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #4b5563;
+            max-width: 720px;
+        }
+
+        .career-hero .career-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 24px;
+            background: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .career-hero .career-button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+
+        /* =======================================================
+           WHY TERRASENSE
+           ======================================================= */
+
+        .career-intro {
+            max-width: 850px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .career-intro h2 {
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .career-intro p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .career-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .career-value-card {
+            background: #ffffff;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .career-value-card h3 {
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .career-value-card p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        /* =======================================================
+           AREAS OF OPPORTUNITY
+           ======================================================= */
+
+        .career-opportunities {
+            background: #f8fafc;
+        }
+
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .opportunity-card {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .opportunity-card h3 {
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .opportunity-card p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .opportunity-card ul {
+            padding-left: 20px;
+            margin: 0;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+
+        /* =======================================================
+           OPEN POSITIONS
+           ======================================================= */
+
+        .career-position {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .position-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .career-position h3 {
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .career-position p {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .position-badge {
+            background: #eef4f1;
+            color: #315c4b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .position-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #0f172a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .position-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =======================================================
+           GENERAL APPLICATION
+           ======================================================= */
+
+        .career-cta {
+            background: #0f172a;
+            color: #ffffff;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        .career-cta h2 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .career-cta p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        .career-cta-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #ffffff;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: 600;
+        }
+
+
+        /* =======================================================
+           MOBILE
+           ======================================================= */
+
+        @media (max-width: 768px) {
+
+            .career-hero {
+                padding: 55px 0;
+            }
+
+            .career-hero h1 {
+                font-size: 34px;
+            }
+
+            .career-hero p {
+                font-size: 17px;
+            }
+
+            .career-values {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .opportunity-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .position-top {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .career-position {
+                padding: 24px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =======================================================
+         NAVIGATION
+         ======================================================= -->
+
+    <header class="navbar">
+        <div class="container nav-inner">
+
+            <a href="/">
+                <img src="/images/terrasense-logo.png"
+                     class="logo"
+                     alt="TerraSense">
+            </a>
+
+            <nav>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/technology/">Technology</a>
+                <a href="/services/">Services</a>
+                <a href="/pilots/">Projects</a>
+                <a href="/careers/" class="active">Careers</a>
+                <a href="/contact/">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =======================================================
+         PAGE HEADER
+         ======================================================= -->
+
+    <div class="page-header">
+        <div class="container">
+            <h2>Careers</h2>
+            <p>Build the future of intelligent sensing with TerraSense.</p>
+        </div>
+    </div>
+
+
+    <!-- =======================================================
+         HERO
+         ======================================================= -->
+
+    <section class="career-hero">
+
+        <div class="container">
+
+            <div class="career-hero-content">
+
+                <h1>
+                    Build Technology That
+                    Makes a Real-World Difference.
+                </h1>
+
+                <p>
+                    At TerraSense, we are developing the next generation of
+                    intelligent sensing technologies for infrastructure,
+                    geotechnical and environmental monitoring.
+                </p>
+
+                <p>
+                    We are looking for curious, driven and hands-on people
+                    who want to turn deep technology into solutions that
+                    protect people, infrastructure and the environment.
+                </p>
+
+                <a href="#opportunities" class="career-button">
+                    Explore Opportunities
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         WHY TERRASENSE
+         ======================================================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="career-intro">
+
+                <h2>Why Join TerraSense?</h2>
+
+                <p>
+                    We are a Malaysian deep-tech company born from research
+                    at Universiti Malaya. At TerraSense, you will work closely
+                    with engineers, researchers and industry partners to solve
+                    real-world problems using advanced sensing technology.
+                </p>
+
+            </div>
+
+
+            <div class="career-values">
+
+                <div class="career-value-card">
+
+                    <h3>Deep-Tech Innovation</h3>
+
+                    <p>
+                        Work with optical fiber sensing, photonics,
+                        instrumentation and intelligent monitoring
+                        technologies that are moving from research into
+                        real-world applications.
+                    </p>
+
+                </div>
+
+
+                <div class="career-value-card">
+
+                    <h3>Real-World Impact</h3>
+
+                    <p>
+                        Our technology is designed for real infrastructure
+                        and environmental challenges, helping improve how
+                        critical assets and slopes are monitored.
+                    </p>
+
+                </div>
+
+
+                <div class="career-value-card">
+
+                    <h3>Grow With the Company</h3>
+
+                    <p>
+                        Join an early-stage team where your ideas, technical
+                        skills and initiative can directly influence the
+                        direction of the company.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         AREAS OF OPPORTUNITY
+         ======================================================= -->
+
+    <section class="section career-opportunities"
+             id="opportunities">
+
+        <div class="container">
+
+            <div class="career-intro">
+
+                <h2>Where You Can Make an Impact</h2>
+
+                <p>
+                    We are building a multidisciplinary team across
+                    technology, engineering and business.
+                </p>
+
+            </div>
+
+
+            <div class="opportunity-grid">
+
+                <div class="opportunity-card">
+
+                    <h3>Engineering & Instrumentation</h3>
+
+                    <p>
+                        Help us develop, deploy and improve our sensing
+                        systems in real-world environments.
+                    </p>
+
+                    <ul>
+                        <li>Optical fiber sensing</li>
+                        <li>Instrumentation</li>
+                        <li>Electronics & data acquisition</li>
+                        <li>Field deployment</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="opportunity-card">
+
+                    <h3>Software & Data</h3>
+
+                    <p>
+                        Turn sensor data into useful information through
+                        monitoring platforms, analytics and intelligent
+                        systems.
+                    </p>
+
+                    <ul>
+                        <li>Software development</li>
+                        <li>Data analytics</li>
+                        <li>Machine learning</li>
+                        <li>Monitoring dashboards</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="opportunity-card">
+
+                    <h3>Research & Development</h3>
+
+                    <p>
+                        Work at the intersection of scientific research
+                        and commercial technology development.
+                    </p>
+
+                    <ul>
+                        <li>Photonics</li>
+                        <li>Sensor development</li>
+                        <li>Experimental research</li>
+                        <li>Technology validation</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="opportunity-card">
+
+                    <h3>Business & Market Development</h3>
+
+                    <p>
+                        Help bring TerraSense technology to industries
+                        that need smarter and more reliable monitoring.
+                    </p>
+
+                    <ul>
+                        <li>Business development</li>
+                        <li>Technical sales</li>
+                        <li>Project development</li>
+                        <li>Industry partnerships</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CURRENT OPPORTUNITIES
+         ======================================================= -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="career-intro">
+
+                <h2>Current Opportunities</h2>
+
+                <p>
+                    We are always interested in meeting talented people
+                    who are passionate about deep technology and solving
+                    meaningful problems.
+                </p>
+
+            </div>
+
+
+            <div class="career-position">
+
+                <div class="position-top">
+
+                    <div>
+
+                        <h3>Internship Opportunities</h3>
+
+                        <p>
+                            We welcome students and recent graduates
+                            interested in gaining hands-on experience
+                            in deep-tech development, engineering,
+                            research and startup operations.
+                        </p>
+
+                    </div>
+
+                    <span class="position-badge">
+                        Internship
+                    </span>
+
+                </div>
+
+                <a href="/contact/" class="position-link">
+                    Enquire about an internship →
+                </a>
+
+            </div>
+
+
+            <div class="career-position">
+
+                <div class="position-top">
+
+                    <div>
+
+                        <h3>Technical & Engineering Roles</h3>
+
+                        <p>
+                            We are looking for technically driven
+                            individuals interested in optical fiber
+                            sensing, instrumentation, software,
+                            data and field deployment.
+                        </p>
+
+                    </div>
+
+                    <span class="position-badge">
+                        Open Application
+                    </span>
+
+                </div>
+
+                <a href="/contact/" class="position-link">
+                    Start a conversation →
+                </a>
+
+            </div>
+
+
+            <div class="career-position">
+
+                <div class="position-top">
+
+                    <div>
+
+                        <h3>Business Development</h3>
+
+                        <p>
+                            Help us build partnerships and bring
+                            TerraSense's sensing technologies to
+                            infrastructure, geotechnical and
+                            environmental markets.
+                        </p>
+
+                    </div>
+
+                    <span class="position-badge">
+                        Open Application
+                    </span>
+
+                </div>
+
+                <a href="/contact/" class="position-link">
+                    Start a conversation →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         CALL TO ACTION
+         ======================================================= -->
+
+    <section class="career-cta">
+
+        <div class="container">
+
+            <h2>Don't See Your Role?</h2>
+
+            <p>
+                We are a growing deep-tech company, and the right
+                opportunity may not always fit into a predefined
+                job description. If you believe your skills can
+                contribute to TerraSense, we would still like to
+                hear from you.
+            </p>
+
+            <a href="/contact/" class="career-cta-button">
+                Get in Touch
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =======================================================
+         FOOTER
+         ======================================================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <img src="/images/terrasense-logo.png"
+                         class="logo"
+                         alt="TerraSense">
+
+                    <p>
+                        Intelligent sensing solutions for a safer
+                        built environment. Specializing in high-precision
+                        optical fiber monitoring for slopes and
+                        structural assets.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>Quick Links</h4>
+
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About Us</a></li>
+                        <li><a href="/technology/">Technology</a></li>
+                        <li><a href="/services/">Services</a></li>
+                        <li><a href="/pilots/">Projects</a></li>
+                        <li><a href="/careers/">Careers</a></li>
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h4>Expertise</h4>
+
+                    <ul>
+                        <li><a href="/services/">Fiber Optic Sensors</a></li>
+                        <li><a href="/services/">Real-time Monitoring</a></li>
+                        <li><a href="/services/">Geotechnical Analysis</a></li>
+                        <li><a href="/contact/">Consulting</a></li>
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h4>Contact Us</h4>
+
+                    <p>
+                        <strong>TerraSense Malaysia</strong><br>
+                        Level G, Block J12, Faculty of Science,
+                        Universiti Malaya, 50603, Kuala Lumpur,
+                        Federal Territory of Kuala Lumpur, Malaysia
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+                &copy; 2026 TerraSense. All rights reserved.
+                | Built by Malaysian Engineering Experts.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
