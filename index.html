@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.add("fade-in");
@@ -21,144 +22,1246 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+
+    /* =========================================
+       STRUCTURES CAROUSEL
+       ========================================= */
+
+    const carousel = document.querySelector(".structures-carousel");
+    const leftButton = document.querySelector(".carousel-arrow.left");
+    const rightButton = document.querySelector(".carousel-arrow.right");
+
+    if (carousel && leftButton && rightButton) {
+
+        /* Distance to move with each arrow click */
+        const scrollAmount = 324;
+
+
+        /* =========================================
+           SMOOTH ARROW SCROLLING
+           ========================================= */
+
+        leftButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            carousel.scrollTo({
+                left: carousel.scrollLeft - scrollAmount,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        rightButton.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            carousel.scrollTo({
+                left: carousel.scrollLeft + scrollAmount,
+                behavior: "smooth"
+            });
+
+        });
+
+
+        /* =========================================
+           MOUSE DRAG SCROLLING
+           ========================================= */
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener("mousedown", (e) => {
+
+            isDown = true;
+
+            carousel.classList.add("dragging");
+
+            startX = e.pageX - carousel.offsetLeft;
+
+            scrollLeft = carousel.scrollLeft;
+
+        });
+
+
+        carousel.addEventListener("mouseleave", () => {
+
+            isDown = false;
+
+            carousel.classList.remove("dragging");
+
+        });
+
+
+        carousel.addEventListener("mouseup", () => {
+
+            isDown = false;
+
+            carousel.classList.remove("dragging");
+
+        });
+
+
+        carousel.addEventListener("mousemove", (e) => {
+
+            if (!isDown) return;
+
+            e.preventDefault();
+
+            const x = e.pageX - carousel.offsetLeft;
+
+            const walk = (x - startX) * 1.5;
+
+            carousel.scrollLeft = scrollLeft - walk;
+
+        });
+
+    }
+
 });
 </script>
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0ZVTH23HD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-S0ZVTH23HD');
-    </script>
+
+<head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>TerraSense | Innovative Sensing Solutions</title>
 
-    <link rel="icon" type="image/png" href="/images/terrasense-logo.png">
-    <link rel="apple-touch-icon" href="/images/terrasense-logo.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="/images/terrasense-logo.png"
+    >
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link
+        rel="apple-touch-icon"
+        href="/images/terrasense-logo.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+
+    <!-- =========================================
+         STRUCTURES CAROUSEL CSS
+         ========================================= -->
+
+    <style>
+
+        .structures-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+
+        .structures-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+
+        .structures-header h2 {
+            margin-bottom: 12px;
+        }
+
+
+        .structures-header p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+
+        .structures-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+
+        /* =========================================
+           CAROUSEL
+           ========================================= */
+
+        .structures-carousel {
+            display: flex;
+
+            gap: 24px;
+
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            scroll-behavior: smooth;
+
+            scrollbar-width: none;
+
+            padding: 10px 5px 25px 5px;
+
+            cursor: grab;
+
+            user-select: none;
+
+            -webkit-overflow-scrolling: touch;
+        }
+
+
+        .structures-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .structures-carousel.dragging {
+            cursor: grabbing;
+        }
+
+
+        /* =========================================
+           STRUCTURE CARDS
+           ========================================= */
+
+        .structure-card {
+
+            flex: 0 0 300px;
+
+            height: 360px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 16px;
+
+            background-color: #e2e8f0;
+
+            box-shadow:
+                0 8px 25px rgba(15, 23, 42, 0.10);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .structure-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(15, 23, 42, 0.16);
+        }
+
+
+        .structure-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            pointer-events: none;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+
+        .structure-card:hover img {
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================================
+           CARD TEXT OVERLAY
+           ========================================= */
+
+        .structure-overlay {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding:
+                70px 25px 25px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(15, 23, 42, 0.90),
+                    rgba(15, 23, 42, 0.55),
+                    transparent
+                );
+        }
+
+
+        .structure-overlay h3 {
+
+            margin: 0 0 6px;
+
+            font-size: 1.4rem;
+
+            color: white;
+        }
+
+
+        .structure-overlay p {
+
+            margin: 0;
+
+            font-size: 0.9rem;
+
+            color: #e2e8f0;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================
+           ARROW BUTTONS
+           ========================================= */
+
+        .carousel-arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 48px;
+
+            height: 48px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background-color:
+                rgba(255, 255, 255, 0.95);
+
+            color: #1e293b;
+
+            font-size: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: 5;
+
+            box-shadow:
+                0 5px 20px
+                rgba(15, 23, 42, 0.15);
+
+            transition:
+                background-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+
+        .carousel-arrow:hover {
+
+            background-color: #2563eb;
+
+            color: white;
+
+            transform:
+                translateY(-50%)
+                scale(1.05);
+        }
+
+
+        .carousel-arrow.left {
+
+            left: 5px;
+        }
+
+
+        .carousel-arrow.right {
+
+            right: 5px;
+        }
+
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 768px) {
+
+            .structures-section {
+
+                padding: 60px 0;
+            }
+
+
+            .structure-card {
+
+                flex: 0 0 270px;
+
+                height: 330px;
+            }
+
+
+            .carousel-arrow {
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 21px;
+            }
+
+
+            .carousel-arrow.left {
+
+                left: 8px;
+            }
+
+
+            .carousel-arrow.right {
+
+                right: 8px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
+
+
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+
     <header class="navbar">
+
         <div class="container nav-inner">
-            <a href="/"><img src="/images/terrasense-logo.png" class="logo" alt="TerraSense"></a>
+
+            <a href="/">
+
+                <img
+                    src="/images/terrasense-logo.png"
+                    class="logo"
+                    alt="TerraSense"
+                >
+
+            </a>
+
+
             <nav>
-                <a href="/" class="active">Home</a>
-                <a href="/about/">About</a>
-                <a href="/technology/">Technology</a>
-                <a href="/services/">Services</a>
-                <a href="/pilots/">Projects</a>
-                <a href="/career/">Careers</a>
-                <a href="/contact/">Contact</a>
+
+                <a href="/" class="active">
+                    Home
+                </a>
+
+                <a href="/about/">
+                    About
+                </a>
+
+                <a href="/technology/">
+                    Technology
+                </a>
+
+                <a href="/services/">
+                    Services
+                </a>
+
+                <a href="/pilots/">
+                    Projects
+                </a>
+
+                <a href="/career/">
+                    Careers
+                </a>
+
+                <a href="/contact/">
+                    Contact
+                </a>
+
             </nav>
+
         </div>
+
     </header>
 
+
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+
     <section class="hero">
+
         <div class="container">
-            <h1>Intelligent Monitoring for Safer Slopes & Infrastructure</h1>
-            <p style="font-size: 1.2rem; max-width: 700px; color: #cbd5e1;">TerraSense delivers real-time, ground movements and infrastructure monitoring using optical fiber sensing to reduce risk and support data-driven engineering decisions.</p>
+
+            <h1>
+                Intelligent Monitoring for Safer Infrastructure
+            </h1>
+
+
+            <p
+                style="
+                    font-size: 1.2rem;
+                    max-width: 700px;
+                    color: #cbd5e1;
+                "
+            >
+                TerraSense delivers real-time, ground movements and
+                infrastructure monitoring using optical fiber sensing
+                to reduce risk and support data-driven engineering decisions.
+            </p>
+
         </div>
+
     </section>
+
+
+
+    <!-- =========================================
+         STRUCTURES WE MONITOR
+         ========================================= -->
+
+    <section class="structures-section">
+
+        <div class="container">
+
+
+            <div class="structures-header">
+
+                <h2>
+                    Structures We Monitor
+                </h2>
+
+
+                <p>
+                    Advanced optical fiber sensing for continuous monitoring
+                    of critical infrastructure and geotechnical assets.
+                </p>
+
+            </div>
+
+
+
+            <div class="structures-wrapper">
+
+
+                <!-- LEFT ARROW -->
+
+                <button
+                    class="carousel-arrow left"
+                    aria-label="Scroll left"
+                    type="button"
+                >
+                    &#10094;
+                </button>
+
+
+
+                <!-- CAROUSEL -->
+
+                <div class="structures-carousel">
+
+
+                    <!-- DAM -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/Slope.png"
+                            alt="Slopes monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Slopes & Hillsides
+                            </h3>
+
+
+                            <p>
+                                Real-time monitoring of ground
+                                movement and slope stability.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BUILDINGS -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/PPUM1.png"
+                            alt="Building monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Buildings
+                            </h3>
+
+
+                            <p>
+                                Detect structural movement and
+                                long-term deformation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BRIDGES -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/Bridges.jfif"
+                            alt="Bridge monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Bridges
+                            </h3>
+
+
+                            <p>
+                                Continuous monitoring of structural
+                                movement and integrity.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- HIGHWAYS -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/Highway.jfif"
+                            alt="Highway monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Highways
+                            </h3>
+
+
+                            <p>
+                                Monitor road infrastructure,
+                                slopes and surrounding ground movement.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RAILWAYS -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/Railway.jpg"
+                            alt="Railway monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Railways
+                            </h3>
+
+
+                            <p>
+                                Monitor track infrastructure
+                                and ground stability.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TUNNELS -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/Tunnel.jfif"
+                            alt="Tunnel monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Tunnels
+                            </h3>
+
+
+                            <p>
+                                Detect deformation and structural
+                                movement in underground assets.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SLOPES -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/Dam.jpg"
+                            alt="Dam monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Dams
+                            </h3>
+
+
+                            <p>
+                                Monitor structural movement,
+                                deformation and environmental changes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RETAINING STRUCTURES -->
+
+                    <div class="structure-card">
+
+                        <img
+                            src="/images/BV3.png"
+                            alt="Retaining wall monitoring"
+                        >
+
+
+                        <div class="structure-overlay">
+
+                            <h3>
+                                Retaining Structures
+                            </h3>
+
+
+                            <p>
+                                Monitor deformation and movement
+                                of retaining systems.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RIGHT ARROW -->
+
+                <button
+                    class="carousel-arrow right"
+                    aria-label="Scroll right"
+                    type="button"
+                >
+                    &#10095;
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         OUR EXPERTISE
+         ========================================= -->
 
     <section class="section">
+
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 50px;">Our Expertise</h2>
+
+
+            <h2
+                style="
+                    text-align: center;
+                    margin-bottom: 50px;
+                "
+            >
+                Our Expertise
+            </h2>
+
+
             <div class="grid-2">
+
+
                 <div class="card">
-                    <img src="/images/expertise-1.jpg" alt="Custom Optical Fiber Sensors" class="card-img">
-                    <h3>Custom Optical Fiber Sensors</h3>
+
+                    <img
+                        src="/images/expertise-1.jpg"
+                        alt="Custom Optical Fiber Sensors"
+                        class="card-img"
+                    >
+
+
+                    <h3>
+                        Custom Optical Fiber Sensors
+                    </h3>
+
+
                     <ul>
-                        <li>Tailored to industry needs and applications</li>
-                        <li>R&D Collaborations</li>
+
+                        <li>
+                            Tailored to industry needs and applications
+                        </li>
+
+                        <li>
+                            R&D Collaborations
+                        </li>
+
                     </ul>
+
                 </div>
+
+
+
                 <div class="card">
-                    <img src="/images/expertise-2.png" alt="Installation" class="card-img">
-                    <h3>Sensor Installation & Data Acquisition</h3>
+
+                    <img
+                        src="/images/expertise-2.png"
+                        alt="Installation"
+                        class="card-img"
+                    >
+
+
+                    <h3>
+                        Sensor Installation & Data Acquisition
+                    </h3>
+
+
                     <ul>
-                        <li>Fiber networks & cabling layouts</li>
-                        <li>Robust data frameworks</li>
+
+                        <li>
+                            Fiber networks & cabling layouts
+                        </li>
+
+                        <li>
+                            Robust data frameworks
+                        </li>
+
                     </ul>
+
                 </div>
+
+
+
                 <div class="card">
-                    <img src="/images/expertise-3.png" alt="Real-time Monitoring" class="card-img">
-                    <h3>Real-Time Monitoring</h3>
+
+                    <img
+                        src="/images/expertise-3.png"
+                        alt="Real-time Monitoring"
+                        class="card-img"
+                    >
+
+
+                    <h3>
+                        Real-Time Monitoring
+                    </h3>
+
+
                     <ul>
-                        <li>Data reporting & visualization</li>
-                        <li>Interactive monitoring dashboards</li>
+
+                        <li>
+                            Data reporting & visualization
+                        </li>
+
+                        <li>
+                            Interactive monitoring dashboards
+                        </li>
+
                     </ul>
+
                 </div>
+
+
+
                 <div class="card">
-                    <img src="/images/expertise-4.png" alt="Consulting" class="card-img">
-                    <h3>Consulting Services</h3>
+
+                    <img
+                        src="/images/expertise-4.png"
+                        alt="Consulting"
+                        class="card-img"
+                    >
+
+
+                    <h3>
+                        Consulting Services
+                    </h3>
+
+
                     <ul>
-                        <li>Expert data analysis support</li>
-                        <li>Specialized optical sensor design</li>
+
+                        <li>
+                            Expert data analysis support
+                        </li>
+
+                        <li>
+                            Specialized optical sensor design
+                        </li>
+
                     </ul>
+
                 </div>
+
+
             </div>
+
         </div>
+
     </section>
 
-    <section class="section" style="background-color: #f8fafc;">
+
+
+    <!-- =========================================
+         WHY CHOOSE US
+         ========================================= -->
+
+    <section
+        class="section"
+        style="background-color: #f8fafc;"
+    >
+
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 50px;">Why Choose Us</h2>
+
+
+            <h2
+                style="
+                    text-align: center;
+                    margin-bottom: 50px;
+                "
+            >
+                Why Choose Us
+            </h2>
+
+
             <div class="grid-3">
+
+
                 <div class="feature-item">
-                    <h4 style="text-align:center; color: #2563eb;">We Value Innovation</h4>
-                    <p style="text-align:left; max-width:300px; margin: 0 auto;">We welcome industries to provide real-life problems, we provide the custom solutions to solve them.</p>
+
+                    <h4
+                        style="
+                            text-align:center;
+                            color: #2563eb;
+                        "
+                    >
+                        We Value Innovation
+                    </h4>
+
+
+                    <p
+                        style="
+                            text-align:left;
+                            max-width:300px;
+                            margin: 0 auto;
+                        "
+                    >
+                        We welcome industries to provide real-life
+                        problems, we provide the custom solutions
+                        to solve them.
+                    </p>
+
                 </div>
+
+
+
                 <div class="feature-item">
-                    <h4 style="text-align:center; color: #2563eb;">One Call Away</h4>
-                    <p style="text-align:left; max-width:300px; margin: 0 auto;">Local-based company with homegrown technology. Our technical experts are just a phone call away.</p>
+
+                    <h4
+                        style="
+                            text-align:center;
+                            color: #2563eb;
+                        "
+                    >
+                        One Call Away
+                    </h4>
+
+
+                    <p
+                        style="
+                            text-align:left;
+                            max-width:300px;
+                            margin: 0 auto;
+                        "
+                    >
+                        Local-based company with homegrown technology.
+                        Our technical experts are just a phone call away.
+                    </p>
+
                 </div>
+
+
+
                 <div class="feature-item">
-                    <h4 style="text-align:center; color: #2563eb;">Malaysian Experts</h4>
-                    <p style="text-align:left; max-width:300px; margin: 0 auto;">Our technical team has over 10 years of experience in optical sensor design and instrumentation.</p>
+
+                    <h4
+                        style="
+                            text-align:center;
+                            color: #2563eb;
+                        "
+                    >
+                        Malaysian Experts
+                    </h4>
+
+
+                    <p
+                        style="
+                            text-align:left;
+                            max-width:300px;
+                            margin: 0 auto;
+                        "
+                    >
+                        Our technical team has over 10 years of
+                        experience in optical sensor design
+                        and instrumentation.
+                    </p>
+
                 </div>
+
+
             </div>
+
         </div>
+
     </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
 
     <footer class="footer">
+
         <div class="container">
+
+
             <div class="footer-grid">
+
+
                 <div>
-                    <img src="/images/terrasense-logo.png" class="logo" alt="TerraSense">
-                    <p>Intelligent sensing solutions for a safer built environment. Specializing in high-precision optical fiber monitoring for slopes and structural assets.</p>
+
+                    <img
+                        src="/images/terrasense-logo.png"
+                        class="logo"
+                        alt="TerraSense"
+                    >
+
+
+                    <p>
+                        Intelligent sensing solutions for a safer
+                        built environment. Specializing in
+                        high-precision optical fiber monitoring
+                        for slopes and structural assets.
+                    </p>
+
                 </div>
+
+
+
                 <div>
-                    <h4>Quick Links</h4>
+
+                    <h4>
+                        Quick Links
+                    </h4>
+
+
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about/">About Us</a></li>
-                        <li><a href="/technology/">Technology</a></li>
-                        <li><a href="/services/">Services</a></li>
-                        <li><a href="/pilots/">Projects</a></li>
+
+                        <li>
+                            <a href="/">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/about/">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/technology/">
+                                Technology
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/services/">
+                                Services
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/pilots/">
+                                Projects
+                            </a>
+                        </li>
+
                     </ul>
+
                 </div>
+
+
+
                 <div>
-                    <h4>Expertise</h4>
+
+                    <h4>
+                        Expertise
+                    </h4>
+
+
                     <ul>
-                        <li><a href="/services/">Fiber Optic Sensors</a></li>
-                        <li><a href="/services/">Real-time Monitoring</a></li>
-                        <li><a href="/services/">Geotechnical Analysis</a></li>
-                        <li><a href="/contact/">Consulting</a></li>
+
+                        <li>
+                            <a href="/services/">
+                                Fiber Optic Sensors
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/services/">
+                                Real-time Monitoring
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/services/">
+                                Geotechnical Analysis
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/contact/">
+                                Consulting
+                            </a>
+                        </li>
+
                     </ul>
+
                 </div>
+
+
+
                 <div>
-                    <h4>Contact Us</h4> 
-                    <p><strong>TerraSense Malaysia</strong><br>Level G, Block J12, Faculty of Science, Universiti Malaya, 50603, Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia</p>
-                    <p style="margin-top:10px;"><br></p>
+
+                    <h4>
+                        Contact Us
+                    </h4>
+
+
+                    <p>
+
+                        <strong>
+                            TerraSense Malaysia
+                        </strong>
+
+                        <br>
+
+                        Level G, Block J12,
+                        Faculty of Science,
+                        Universiti Malaya,
+                        50603, Kuala Lumpur,
+                        Federal Territory of Kuala Lumpur,
+                        Malaysia
+
+                    </p>
+
+
+                    <p style="margin-top:10px;">
+                        <br>
+                    </p>
+
                 </div>
+
+
             </div>
-            <div class="footer-bottom">&copy; 2026 TerraSense. All rights reserved.</div>
+
+
+            <div class="footer-bottom">
+
+                &copy; 2026 TerraSense.
+                All rights reserved.
+
+            </div>
+
+
         </div>
+
     </footer>
+
+
 </body>
+
 </html>
