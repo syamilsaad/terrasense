@@ -23,18 +23,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+/* =======================================================
+   FIX: Browser Back / Forward Button
+   Ensures the previous page loads correctly when
+   navigating back using the browser's Back button.
+   ======================================================= */
+window.addEventListener("pageshow", function (event) {
+    document.body.classList.remove("fade-out");
+    document.body.classList.add("fade-in");
+});
 </script>
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0ZVTH23HD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-S0ZVTH23HD');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
