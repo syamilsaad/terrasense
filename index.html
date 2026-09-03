@@ -122,7 +122,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+
+/* =========================================
+   FIX: BROWSER BACK / FORWARD BUTTON
+   ========================================= */
+
+window.addEventListener("pageshow", function (event) {
+
+    document.body.classList.remove("fade-out");
+
+    document.body.classList.add("fade-in");
+
+});
 </script>
+
 
 
 <head>
